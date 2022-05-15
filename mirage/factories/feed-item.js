@@ -13,5 +13,5 @@ export default Factory.extend({
   },
   url() {
     return faker.internet.url();
-  }
+  },
 });

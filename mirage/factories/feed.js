@@ -1,4 +1,4 @@
-import { Factory } from 'miragejs';
+import { Factory, trait } from 'miragejs';
 import faker from '@faker-js/faker';
 
 export default Factory.extend({
@@ -13,4 +13,12 @@ export default Factory.extend({
       feedItems: server.createList('feed-item', 5),
     });
   },
+
+  staticTitle: trait({
+    title(i) {
+      i++;
+
+      return `Feed ${i}`;
+    }
+  })
 });
