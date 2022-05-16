@@ -4,5 +4,5 @@ export default class FeedModel extends Model {
   @attr('string') title;
   @attr('string') url;
 
-  @hasMany feedItems;
+  @hasMany('feed-item', { async: false }) feedItems;
 }
