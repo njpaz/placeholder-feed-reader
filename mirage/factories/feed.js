@@ -10,7 +10,7 @@ export default Factory.extend({
   },
   afterCreate(feed, server) {
     feed.update({
-      feedItems: server.createList('feed-item', 5),
+      feedItems: server.createList('feed-item', 5)
     });
   },
 

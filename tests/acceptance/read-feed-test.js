@@ -31,8 +31,12 @@ module('Acceptance | read feed', function (hooks) {
     let feedHeading = find('[data-id="feed-heading"]');
     let { textContent: title, href } = feedHeading;
 
-    assert.equal(title.trim(), 'Feed 1', 'it shows the feed title at the top');
-    assert.equal(
+    assert.strictEqual(
+      title.trim(),
+      'Feed 1',
+      'it shows the feed title at the top'
+    );
+    assert.strictEqual(
       href,
       `${firstFeed.url}/`,
       'the feed title contains a link to the original site'
@@ -46,7 +50,11 @@ module('Acceptance | read feed', function (hooks) {
     await click('[data-id="item-title"]');
 
     let { textContent: itemDescription } = find('[data-id="item-description"]');
-    assert.equal(itemDescription, firstFeed.description, 'it displays the feed item description when the user clicks on the feed item heading');
+    assert.strictEqual(
+      itemDescription,
+      firstFeed.description,
+      'it displays the feed item description when the user clicks on the feed item heading'
+    );
 
     // arrow keys to go to next/previous feed item
   });
