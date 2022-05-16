@@ -1,0 +1,11 @@
+<h3>
+  <button class="btn btn-link" data-id="item-title" {{on "click" this.toggleItemVisibility}}>
+    {{@item.title}}
+  </button>
+</h3>
+
+{{#if this.shouldShowItem}}
+  <div data-id="item-description">
+    {{@item.description}}
+  </div>
+{{/if}}

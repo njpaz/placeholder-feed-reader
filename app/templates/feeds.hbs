@@ -1,9 +1,16 @@
+<h1>Feeds</h1>
 <div class="row">
   <div class="col-2">
-    {{#each @model as |feed|}}
-      <div data-id="feed-title">{{feed.title}}</div>
+    {{#each @model as |feed index|}}
+      <div data-id="feed-title">
+        <LinkTo data-id="feed-{{index}}" @route="feeds.feed" @model={{feed}}>
+          {{feed.title}}
+        </LinkTo>
+      </div>
     {{/each}}
   </div>
-</div>
 
-{{outlet}}
+  <div class="col-10">
+    {{outlet}}
+  </div>
+</div>

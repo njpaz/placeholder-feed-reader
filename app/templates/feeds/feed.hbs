@@ -1,0 +1,13 @@
+{{page-title "Feed"}}
+
+<h2>
+  <a href="{{@model.url}}" data-id="feed-heading" rel="noopener noreferrer" target="_blank">
+    {{@model.title}}
+  </a>
+</h2>
+
+{{#each @model.feedItems as |item|}}
+  <FeedItem @item={{item}} />
+{{/each}}
+
+{{outlet}}
