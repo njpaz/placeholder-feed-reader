@@ -1,13 +1,15 @@
 {{page-title "Feed"}}
 
 <h2>
-  <a href="{{@model.url}}" data-id="feed-heading" rel="noopener noreferrer" target="_blank">
+  <a href="{{@model.url}}" class="text-decoration-none text-black" data-id="feed-heading" rel="noopener noreferrer" target="_blank">
     {{@model.title}}
   </a>
 </h2>
 
-{{#each @model.feedItems as |item|}}
-  <FeedItem @item={{item}} />
-{{/each}}
+<div class="accordion">
+  {{#each @model.feedItems as |item|}}
+    <FeedItem @item={{item}} />
+  {{/each}}
+</div>
 
 {{outlet}}

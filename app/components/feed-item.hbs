@@ -1,11 +1,23 @@
-<h3>
-  <button class="btn btn-link" data-id="item-title" type="button" {{on "click" this.toggleItemVisibility}}>
-    {{@item.title}}
-  </button>
-</h3>
+<div class="accordion-item">
+  <h2 class="accordion-header" data-id="item-header" id="heading-{{this.elementId}}">
+    <button
+      data-id="item-title"
+      class="accordion-button {{unless this.shouldShowItem "collapsed"}}"
+      type="button"
+      {{on "click" this.toggleItemVisibility}}
+      aria-expanded="{{this.shouldShowItem}}"
+      aria-controls={{this.elementId}}>
+      {{@item.title}}
+    </button>
+  </h2>
 
-{{#if this.shouldShowItem}}
-  <div data-id="item-description">
-    {{@item.description}}
+  <div
+    data-id="item-description"
+    id={{this.elementId}}
+    class="accordion-collapse collapse {{if this.shouldShowItem "show" "hide"}}"
+    aria-labelledby="heading-{{this.elementId}}">
+    <div class="accordion-body">
+      {{@item.description}}
+    </div>
   </div>
-{{/if}}
+</div>
