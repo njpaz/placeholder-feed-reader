@@ -1,5 +1,9 @@
 <div class="accordion">
-  {{#each @feedItems as |item|}}
-    <FeedItem @item={{item}} />
+  {{#each @feedItems as |item index|}}
+    <FeedItem
+      @item={{item}}
+      @index={{index}}
+      @selectedIndex={{this.selectedIndex}}
+      @selectVisibleIndex={{fn this.selectVisibleIndex index}} />
   {{/each}}
 </div>

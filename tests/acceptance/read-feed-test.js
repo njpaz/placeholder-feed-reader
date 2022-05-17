@@ -19,8 +19,8 @@ module('Acceptance | read feed', function (hooks) {
   });
 
   test('it displays the feed information and feed items when clicking on the feed title', async function (assert) {
-    assert.expect(8);
-    let firstFeed = this.server.create('feed', 'staticTitle');
+    assert.expect(10);
+    let [firstFeed] = this.server.createList('feed', 2, 'staticTitle');
 
     await visit('/');
     await click('[data-id="feed-0"]');
@@ -55,5 +55,10 @@ module('Acceptance | read feed', function (hooks) {
       );
     assert.dom('[data-id="item-title"]').doesNotHaveClass('collapsed');
     assert.dom('[data-id="item-description"]').hasClass('show');
+
+    await click('[data-id="item-container"]:nth-child(2) button[data-id="item-title"]');
+
+    assert.dom('[data-id="item-container"]:nth-child(1) button[data-id="item-title"]').hasAria('expanded', 'false');
+    assert.dom('[data-id="item-container"]:nth-child(2) button[data-id="item-title"]').hasAria('expanded', 'true');
   });
 });
