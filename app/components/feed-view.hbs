@@ -1,6 +1,6 @@
 <div class="accordion">
   {{#each @feedItems as |item index|}}
-    <FeedItem
+    <FeedView::Item
       @item={{item}}
       @index={{index}}
       @selectedIndex={{this.selectedIndex}}

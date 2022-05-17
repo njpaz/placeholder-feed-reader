@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 
-export default class FeedItemComponent extends Component {
+export default class FeedViewItemComponent extends Component {
   constructor() {
     super(...arguments);
 
