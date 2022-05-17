@@ -6,10 +6,6 @@
   </a>
 </h2>
 
-<div class="accordion">
-  {{#each @model.feedItems as |item|}}
-    <FeedItem @item={{item}} />
-  {{/each}}
-</div>
+<FeedView @feedItems={{@model.feedItems}} />
 
 {{outlet}}
