@@ -15,7 +15,9 @@ module('Integration | Component | feed-view/item', function (hooks) {
     });
     this.set('selectVisibleIndex', () => {});
 
-    await render(hbs`<FeedView::Item @item={{this.item}} @selectVisibleIndex={{this.selectVisibleIndex}} />`);
+    await render(
+      hbs`<FeedView::Item @item={{this.item}} @selectVisibleIndex={{this.selectVisibleIndex}} />`
+    );
 
     let { id } = find('[data-id="item-description"]');
 

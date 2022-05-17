@@ -56,9 +56,19 @@ module('Acceptance | read feed', function (hooks) {
     assert.dom('[data-id="item-title"]').doesNotHaveClass('collapsed');
     assert.dom('[data-id="item-description"]').hasClass('show');
 
-    await click('[data-id="item-container"]:nth-child(2) button[data-id="item-title"]');
+    await click(
+      '[data-id="item-container"]:nth-child(2) button[data-id="item-title"]'
+    );
 
-    assert.dom('[data-id="item-container"]:nth-child(1) button[data-id="item-title"]').hasAria('expanded', 'false');
-    assert.dom('[data-id="item-container"]:nth-child(2) button[data-id="item-title"]').hasAria('expanded', 'true');
+    assert
+      .dom(
+        '[data-id="item-container"]:nth-child(1) button[data-id="item-title"]'
+      )
+      .hasAria('expanded', 'false');
+    assert
+      .dom(
+        '[data-id="item-container"]:nth-child(2) button[data-id="item-title"]'
+      )
+      .hasAria('expanded', 'true');
   });
 });
